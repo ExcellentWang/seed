@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.UserDeviceMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.UserDevice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="share_user_id" jdbcType="VARCHAR" property="shareUserId" />
+    <result column="equipment_id" jdbcType="VARCHAR" property="equipmentId" />
+    <result column="authority" jdbcType="SMALLINT" property="authority" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="share_time" jdbcType="TIMESTAMP" property="shareTime" />
+  </resultMap>
+</mapper>

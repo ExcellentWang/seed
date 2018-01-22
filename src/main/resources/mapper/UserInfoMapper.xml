@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.UserInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="HEAD_IMG_URL" jdbcType="VARCHAR" property="headImgUrl" />
+    <result column="HEAD_NAME" jdbcType="VARCHAR" property="headName" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="NICK_NAME" jdbcType="VARCHAR" property="nickName" />
+    <result column="GENDER" jdbcType="SMALLINT" property="gender" />
+    <result column="BIRTHDATE" jdbcType="VARCHAR" property="birthdate" />
+    <result column="ID_CARD_INFO" jdbcType="VARCHAR" property="idCardInfo" />
+    <result column="CREATE_BY" jdbcType="BIGINT" property="createBy" />
+    <result column="CREATE_DATETIME" jdbcType="TIMESTAMP" property="createDatetime" />
+    <result column="UPDATE_BY" jdbcType="BIGINT" property="updateBy" />
+    <result column="UPDATE_DATETIME" jdbcType="TIMESTAMP" property="updateDatetime" />
+  </resultMap>
+</mapper>

@@ -18,7 +18,7 @@ import static com.company.restapi.core.ProjectConstant.*;
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/shower_refactor";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/intelligent_shower";
     private static final String JDBC_USERNAME = "root";
     private static final String JDBC_PASSWORD = "Dream96*";
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
@@ -37,7 +37,11 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("admins","alarm_datatype","device_logs","device_use_log","device_water","equipment_datatype","firm_version","guarantee_type","information_datatype","information_user","information_user_del","lunbo","staff","t_s_detail","t_s_dict","t_s_log","t_s_menu","t_s_role","t_s_role_menu","t_s_role_user","t_s_user","tb_alarm","tb_applog","tb_appupdate","tb_appversion","tb_commonproblem","tb_customerpicture","tb_customerservice","tb_customerservicedetails","tb_debugging","tb_device_error","tb_deviceinformation","tb_equipment","tb_equipment_appointment","tb_equipmentstatus","tb_equipmentversion","tb_eula","tb_feedback","tb_guarantee","tb_information","tb_newsinformation","tb_remind","tb_service_progress","tb_slideshow","tb_user","tb_user_share","tb_wcal", "weather_datatype");
+        genCode("device_appointment",
+                "intel_account",
+                "intel_device",
+                "user_device",
+                "user_info");
         //genCodeByCustomModelName("输入表名","输入自定义Model名称");
     }
 

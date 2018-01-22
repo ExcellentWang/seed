@@ -4,22 +4,15 @@ package com.company.restapi.web;
 import com.company.common.constant.BaseConstant;
 import com.company.restapi.core.Result;
 import com.company.restapi.core.ResultGenerator;
-import com.company.restapi.model.TbUser;
+import com.company.restapi.model.IntelAccount;
 import com.company.restapi.service.AppUserService;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -59,10 +52,10 @@ public class AppUserController extends BaseConstant {
     * 用户注册
    **/
     @RequestMapping(value = "app/user/appUserRegister", method = RequestMethod.POST)
-    public Result regist(TbUser user, String code) {
+    public Result regist(IntelAccount intelAccount, String code) {
         try {
 
-            Map<Object,Object> objectObjectMap= appUserService.addNewUser(user,code);
+            Map<Object,Object> objectObjectMap= appUserService.addNewUser(intelAccount,code);
             return ResultGenerator.genSuccessResult(objectObjectMap);
         } catch (Exception e) {
             e.printStackTrace();

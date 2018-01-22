@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.IntelDeviceMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.IntelDevice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="equipmentNum" jdbcType="VARCHAR" property="equipmentnum" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="equipmentPicture" jdbcType="VARCHAR" property="equipmentpicture" />
+    <result column="equipmentName" jdbcType="VARCHAR" property="equipmentname" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="binded_at" jdbcType="TIMESTAMP" property="bindedAt" />
+    <result column="product" jdbcType="VARCHAR" property="product" />
+    <result column="firm_version" jdbcType="VARCHAR" property="firmVersion" />
+  </resultMap>
+</mapper>
