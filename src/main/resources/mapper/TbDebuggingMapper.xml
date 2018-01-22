@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TbDebuggingMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TbDebugging">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="debugging_id" jdbcType="INTEGER" property="debuggingId" />
+    <result column="equipment_id" jdbcType="INTEGER" property="equipmentId" />
+    <result column="waterTank" jdbcType="VARCHAR" property="watertank" />
+    <result column="coldSensor" jdbcType="VARCHAR" property="coldsensor" />
+    <result column="hotSensor" jdbcType="VARCHAR" property="hotsensor" />
+    <result column="mixTemperature" jdbcType="VARCHAR" property="mixtemperature" />
+    <result column="mixCommunication" jdbcType="VARCHAR" property="mixcommunication" />
+    <result column="bufferSensor" jdbcType="VARCHAR" property="buffersensor" />
+    <result column="effluentSensor" jdbcType="VARCHAR" property="effluentsensor" />
+    <result column="pumpStatus" jdbcType="VARCHAR" property="pumpstatus" />
+  </resultMap>
+</mapper>

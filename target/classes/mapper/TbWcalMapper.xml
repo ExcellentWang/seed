@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TbWcalMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TbWcal">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hot_water_de" jdbcType="VARCHAR" property="hotWaterDe" />
+    <result column="code_water_de" jdbcType="VARCHAR" property="codeWaterDe" />
+    <result column="c_water_de" jdbcType="VARCHAR" property="cWaterDe" />
+    <result column="h_water_de" jdbcType="VARCHAR" property="hWaterDe" />
+    <result column="mixing_valve" jdbcType="VARCHAR" property="mixingValve" />
+    <result column="discharge_coefficient" jdbcType="VARCHAR" property="dischargeCoefficient" />
+    <result column="temperature_b_value" jdbcType="VARCHAR" property="temperatureBValue" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="device_no" jdbcType="VARCHAR" property="deviceNo" />
+  </resultMap>
+</mapper>

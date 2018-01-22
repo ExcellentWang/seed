@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TbEquipmentAppointmentMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TbEquipmentAppointment">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="appointment_id" jdbcType="INTEGER" property="appointmentId" />
+    <result column="equipment_id" jdbcType="INTEGER" property="equipmentId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="effluent_speed" jdbcType="VARCHAR" property="effluentSpeed" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="children_status" jdbcType="VARCHAR" property="childrenStatus" />
+    <result column="appointment_temperature" jdbcType="VARCHAR" property="appointmentTemperature" />
+    <result column="effluent_type" jdbcType="VARCHAR" property="effluentType" />
+    <result column="effluent_amount" jdbcType="VARCHAR" property="effluentAmount" />
+    <result column="effluent_time" jdbcType="VARCHAR" property="effluentTime" />
+    <result column="effluent_way" jdbcType="VARCHAR" property="effluentWay" />
+    <result column="valid" jdbcType="BIT" property="valid" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+</mapper>

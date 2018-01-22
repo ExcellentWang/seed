@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TbAlarmMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TbAlarm">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="alarm_id" jdbcType="INTEGER" property="alarmId" />
+    <result column="alarm_type" jdbcType="VARCHAR" property="alarmType" />
+    <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
+    <result column="alarm_remark" jdbcType="VARCHAR" property="alarmRemark" />
+  </resultMap>
+</mapper>

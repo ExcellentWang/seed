@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TbUserMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TbUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="headPortrait" jdbcType="VARCHAR" property="headportrait" />
+    <result column="registerTime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="loginTime" jdbcType="TIMESTAMP" property="logintime" />
+    <result column="phoneModel" jdbcType="VARCHAR" property="phonemodel" />
+    <result column="appVersion" jdbcType="VARCHAR" property="appversion" />
+  </resultMap>
+</mapper>

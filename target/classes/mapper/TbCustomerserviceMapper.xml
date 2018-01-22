@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TbCustomerserviceMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TbCustomerservice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="equipment_id" jdbcType="INTEGER" property="equipmentId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="equipmentNum" jdbcType="VARCHAR" property="equipmentnum" />
+    <result column="repairType" jdbcType="VARCHAR" property="repairtype" />
+    <result column="phenomenon" jdbcType="VARCHAR" property="phenomenon" />
+    <result column="appointmentTime" jdbcType="TIMESTAMP" property="appointmenttime" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="orderNum" jdbcType="VARCHAR" property="ordernum" />
+  </resultMap>
+</mapper>

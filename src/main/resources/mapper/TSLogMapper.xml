@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TSLogMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TSLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="log_id" jdbcType="INTEGER" property="logId" />
+    <result column="action_url" jdbcType="VARCHAR" property="actionUrl" />
+    <result column="log_time" jdbcType="TIMESTAMP" property="logTime" />
+    <result column="user_ip" jdbcType="VARCHAR" property="userIp" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="log_desc" jdbcType="VARCHAR" property="logDesc" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="process_time" jdbcType="INTEGER" property="processTime" />
+    <result column="controller_name" jdbcType="VARCHAR" property="controllerName" />
+    <result column="controller_method" jdbcType="VARCHAR" property="controllerMethod" />
+  </resultMap>
+</mapper>

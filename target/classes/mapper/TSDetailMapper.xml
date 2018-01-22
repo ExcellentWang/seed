@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restapi.dao.TSDetailMapper">
+  <resultMap id="BaseResultMap" type="com.company.restapi.model.TSDetail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="detail_id" jdbcType="INTEGER" property="detailId" />
+    <result column="dict_id" jdbcType="INTEGER" property="dictId" />
+    <result column="detail_name" jdbcType="VARCHAR" property="detailName" />
+    <result column="detail_value" jdbcType="VARCHAR" property="detailValue" />
+    <result column="detail_desc" jdbcType="VARCHAR" property="detailDesc" />
+    <result column="detail_status" jdbcType="INTEGER" property="detailStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
