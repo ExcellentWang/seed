@@ -1,6 +1,7 @@
 package com.company.restapi.service.impl;
 
 import com.company.common.util.StringUtilsCommon;
+import com.company.restapi.model.IntelAccount;
 import com.company.restapi.service.SmsService;
 import com.conpany.project.Tester;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.MINUTES;
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -54,5 +56,7 @@ public class AppUserServiceImplTest extends Tester {
 
 
     }
+
+
 
 }

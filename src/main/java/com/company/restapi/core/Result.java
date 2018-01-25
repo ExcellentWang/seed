@@ -10,7 +10,7 @@ import java.util.Map;
 public class Result {
     private int code;
     private String message;
-    private Object data;
+    private Object resultMap;
     public void setCode(int code) {
         this.code = code;
     }
@@ -33,12 +33,12 @@ public class Result {
         return this;
     }
 
-    public Object getData() {
-        return data;
+    public Object getResultMap() {
+        return resultMap;
     }
 
-    public Result setData(Object data) {
-        this.data = data;
+    public Result setResultMap(Object resultMap) {
+        this.resultMap = resultMap;
         return this;
     }
 

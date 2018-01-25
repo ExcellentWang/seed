@@ -5,12 +5,12 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="share_user_id" jdbcType="VARCHAR" property="shareUserId" />
-    <result column="equipment_id" jdbcType="VARCHAR" property="equipmentId" />
-    <result column="authority" jdbcType="SMALLINT" property="authority" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="status" jdbcType="SMALLINT" property="status" />
-    <result column="share_time" jdbcType="TIMESTAMP" property="shareTime" />
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="EQUIPMENT_ID" jdbcType="VARCHAR" property="equipmentId" />
+    <result column="AUTHORITY" jdbcType="SMALLINT" property="authority" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="STATUS" jdbcType="SMALLINT" property="status" />
+    <result column="SHARE_TIME" jdbcType="TIMESTAMP" property="shareTime" />
   </resultMap>
 </mapper>

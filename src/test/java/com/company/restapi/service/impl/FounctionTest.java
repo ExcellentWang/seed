@@ -1,5 +1,6 @@
 package com.company.restapi.service.impl;
 
+import com.company.common.util.Md5Util;
 import org.junit.Test;
 
 /**
@@ -15,5 +16,11 @@ public class FounctionTest {
 
         Integer i = 88888;
         System.out.println(i.toString());
+    }
+    @Test
+    public void testMd5(){
+        int i = 0000;
+        String md5String = Md5Util.getMD5String(Integer.toString(i));
+        System.out.println(md5String);
     }
 }

@@ -4,7 +4,7 @@ import com.company.restapi.core.Service;
 
 
 /**
- * Created by CodeGenerator on 2018/01/22.
+ * Created by CodeGenerator on 2018/01/25.
  */
 public interface IntelDeviceService extends Service<IntelDevice> {
 

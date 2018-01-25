@@ -15,6 +15,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
+import com.company.common.interceptor.TokenVerification;
 import com.company.restapi.core.Result;
 import com.company.restapi.core.ResultCode;
 import com.company.restapi.core.ServiceException;
@@ -43,7 +44,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     private final Logger logger = LoggerFactory.getLogger(WebMvcConfigurer.class);
     @Value("${spring.profiles.active}")
     // dev stg product
-    private String dev;//当前激活的配置文件
+    private String env;//当前激活的配置文件
 
     //使用阿里 FastJson 作为JSON MessageConverter
     @Override
@@ -97,15 +98,35 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     //解决跨域问题
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        //registry.addMapping("/**");
+        //registry.addMapping(
+        // "/**");
     }
 
     //添加拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //接口签名认证拦截器，该签名认证比较简单，实际项目中可以使用Json Web Token或其他更好的方式替代。
-        if (!"dev".equals(dev)) { //开发环境忽略签名认证
+        if (!"dev".equals(env)) { //开发环境忽略签名认证
+            //排除以下路径
+            registry.addInterceptor(new TokenVerification()).excludePathPatterns(
+                    "/test",
+                    "/admin/**",
+                    "/static/**",
+                    "/app/user/appUserRegister",
+                    "/app/user/appUserLogin",
+                    "/app/user/appUserGetVerificationCode",
+                    "/app/user/appUserForgetPassword",
+                    "/app/user/getEULA",
+                    "/log/**",
+                    "/app/update",
+                    "/information/getNewsList",
+                    "/view/**",
+                    "/device/deviceSendInstruction"
+            );
+
+
             registry.addInterceptor(new HandlerInterceptorAdapter() {
+
                 @Override
                 public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
                     //验证签名
@@ -122,7 +143,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
                         return false;
                     }
                 }
-            });
+            });//可以使用.addpatern加入规则
         }
     }
 

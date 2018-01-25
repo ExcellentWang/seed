@@ -14,11 +14,11 @@ public class ResultGenerator {
                 .setMessage(DEFAULT_SUCCESS_MESSAGE);
     }
 
-    public static Result genSuccessResult(Object data) {
+    public static Result genSuccessResult(Object resultMap) {
         return new Result()
                 .setCode(ResultCode.SUCCESS)
                 .setMessage(DEFAULT_SUCCESS_MESSAGE)
-                .setData(data);
+                .setResultMap(resultMap);
     }
     public static Result genFailResult(String message) {
         return new Result()

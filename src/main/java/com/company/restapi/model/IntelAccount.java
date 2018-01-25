@@ -9,9 +9,8 @@ public class IntelAccount {
      * id自增长
      */
     @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "USER_ID")
+    private Long userId;
 
     /**
      * 用户名
@@ -82,19 +81,19 @@ public class IntelAccount {
     /**
      * 获取id自增长
      *
-     * @return ID - id自增长
+     * @return USER_ID - id自增长
      */
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
     /**
      * 设置id自增长
      *
-     * @param id id自增长
+     * @param userId id自增长
      */
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     /**

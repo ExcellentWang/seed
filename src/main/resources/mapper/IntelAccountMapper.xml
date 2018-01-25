@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="ID" jdbcType="BIGINT" property="id" />
+    <id column="USER_ID" jdbcType="BIGINT" property="userId" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="NICK_NAME" jdbcType="VARCHAR" property="nickName" />
     <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
