@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2018/01/25.
+* Created by CodeGenerator on 2018/01/26.
 */
 @RestController
 @RequestMapping("/user/device")

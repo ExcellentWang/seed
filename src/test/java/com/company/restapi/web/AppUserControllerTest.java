@@ -48,9 +48,9 @@ public class AppUserControllerTest extends Tester {
         String verfiyCode =  getVerfiyCode(intelAccount1);
         System.out.println(verfiyCode);
 
-        Map<Object,Object> objectObjectMap = appUserService.updatePhoneNum(intelAccount1,tokenForTest,"999",verfiyCode);
+//        Map<Object,Object> objectObjectMap = appUserService.updatePhoneNum(intelAccount1,tokenForTest,"999",verfiyCode);
         System.out.println(intelAccountMapper.selectOne(intelAccount1));
-        System.out.println(ResultGenerator.genSuccessResult(objectObjectMap));
+//        System.out.println(ResultGenerator.genSuccessResult(objectObjectMap));
     }
     /**
      * @author wang 2018/1/24 下午8:20
@@ -60,7 +60,7 @@ public class AppUserControllerTest extends Tester {
     **/
     public  String getTokenForTest(IntelAccount intelAccount) {
         String token = StringUtilsCommon.getToken();
-        stringRedisTemplate.opsForValue().set(Long.toString(intelAccount.getId()), token, 30, TimeUnit.MINUTES);
+//        stringRedisTemplate.opsForValue().set(Long.toString(intelAccount.getId()), token, 30, TimeUnit.MINUTES);
         return token;
     }
 

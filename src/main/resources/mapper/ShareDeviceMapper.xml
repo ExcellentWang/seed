@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="com.company.restapi.dao.ShareDeviceMapper">
+    <!--查询列表-->
+    <select id="selectIntelAccountById" parameterType="java.lang.String" resultType="com.company.restapi.model.IntelAccount">
+    select USER_ID  as userId,phone_no as phoneNo from intel_account where PHONE_NO = ${};
+    </select>
+</mapper>

@@ -22,11 +22,11 @@ public class UserDevice {
     /**
      * 设备ID
      */
-    @Column(name = "EQUIPMENT_ID")
-    private String equipmentId;
+    @Column(name = "DEVICE_ID")
+    private String deviceId;
 
     /**
-     * 权限 0查看 1查看并控制
+     * 权限 1查看 2查看并控制
      */
     @Column(name = "AUTHORITY")
     private Short authority;
@@ -38,10 +38,10 @@ public class UserDevice {
     private String remark;
 
     /**
-     * 拥有状态 0绑定 1共享
+     * 拥有状态 1绑定 2共享
      */
-    @Column(name = "STATUS")
-    private Short status;
+    @Column(name = "DEVICE_STATUS")
+    private Short deviceStatus;
 
     @Column(name = "SHARE_TIME")
     private Date shareTime;
@@ -78,41 +78,43 @@ public class UserDevice {
      *
      * @param userId 用户ID
      */
-    public void setUserId(String userId) {
+    public UserDevice setUserId(String userId) {
         this.userId = userId;
+        return this;
     }
 
     /**
      * 获取设备ID
      *
-     * @return EQUIPMENT_ID - 设备ID
+     * @return DEVICE_ID - 设备ID
      */
-    public String getEquipmentId() {
-        return equipmentId;
+    public String getDeviceId() {
+        return deviceId;
     }
 
     /**
      * 设置设备ID
      *
-     * @param equipmentId 设备ID
+     * @param deviceId 设备ID
      */
-    public void setEquipmentId(String equipmentId) {
-        this.equipmentId = equipmentId;
+    public UserDevice setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+        return this;
     }
 
     /**
-     * 获取权限 0查看 1查看并控制
+     * 获取权限 1查看 2查看并控制
      *
-     * @return AUTHORITY - 权限 0查看 1查看并控制
+     * @return AUTHORITY - 权限 1查看 2查看并控制
      */
     public Short getAuthority() {
         return authority;
     }
 
     /**
-     * 设置权限 0查看 1查看并控制
+     * 设置权限 1查看 2查看并控制
      *
-     * @param authority 权限 0查看 1查看并控制
+     * @param authority 权限 1查看 2查看并控制
      */
     public void setAuthority(Short authority) {
         this.authority = authority;
@@ -137,21 +139,22 @@ public class UserDevice {
     }
 
     /**
-     * 获取拥有状态 0绑定 1共享
+     * 获取拥有状态 1绑定 2共享
      *
-     * @return STATUS - 拥有状态 0绑定 1共享
+     * @return DEVICE_STATUS - 拥有状态 1绑定 2共享
      */
-    public Short getStatus() {
-        return status;
+    public Short getDeviceStatus() {
+        return deviceStatus;
     }
 
     /**
-     * 设置拥有状态 0绑定 1共享
+     * 设置拥有状态 1绑定 2共享
      *
-     * @param status 拥有状态 0绑定 1共享
+     * @param deviceStatus 拥有状态 1绑定 2共享
      */
-    public void setStatus(Short status) {
-        this.status = status;
+    public UserDevice setDeviceStatus(Short deviceStatus) {
+        this.deviceStatus = deviceStatus;
+        return this;
     }
 
     /**

@@ -7,10 +7,10 @@
     -->
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
-    <result column="EQUIPMENT_ID" jdbcType="VARCHAR" property="equipmentId" />
+    <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
     <result column="AUTHORITY" jdbcType="SMALLINT" property="authority" />
     <result column="REMARK" jdbcType="VARCHAR" property="remark" />
-    <result column="STATUS" jdbcType="SMALLINT" property="status" />
+    <result column="DEVICE_STATUS" jdbcType="SMALLINT" property="deviceStatus" />
     <result column="SHARE_TIME" jdbcType="TIMESTAMP" property="shareTime" />
   </resultMap>
 </mapper>
