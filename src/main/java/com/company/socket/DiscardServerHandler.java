@@ -10,60 +10,36 @@ package com.company.socket;
 
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerAdapter;
-import io.netty.channel.ChannelHandlerContext;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.*;
+import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
+
+import java.lang.reflect.Array;
+import java.util.Date;
 
 /**
  * Handles a server-side channel.
  */
-public class DiscardServerHandler extends ChannelHandlerAdapter { // (1)
-    //接收消息
+public class DiscardServerHandler extends ChannelInboundHandlerAdapter { // (1)
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) { // (2)
-
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf in = (ByteBuf) msg;
-        String str = msg.toString();
-        System.out.println(str);
-
-        /*
-        * ctx.write(Object) does not make the message written out to the wire.
-        * It is buffered internally, and then flushed out to the wire by ctx.flush().
-        * Alternatively, you could call ctx.writeAndFlush(msg) for brevity.
-        * */
-        //回显telnet 数据
-//        ctx.writeAndFlush(msg);
-        //msg 写入在打印会蹦
-        try {
-            while (in.isReadable()) { // (1)
-                System.out.print((char) in.readByte());
-                System.out.flush();
-            }
-        } finally {
-            ReferenceCountUtil.release(msg); // (2)
-        }
-
+        System.out.println(
+                "Server received: " + in.toString(CharsetUtil.UTF_8));
+        ctx.write(in);
     }
 
-    //发送消息
-//    @Override
-//    public void channelActive(final ChannelHandlerContext ctx) { // (1)
-//        final ByteBuf time = ctx.alloc().buffer(4); // (2)
-//        time.writeInt((int) (System.currentTimeMillis() / 1000L + 2208988800L));
-//
-//        final ChannelFuture f = ctx.writeAndFlush(time); // (3)
-//        f.addListener((ChannelFutureListener) future -> {
-//            assert f == future;
-//            ctx.close();
-//        }); // (4)
-//    }
-
-    //异常处理
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) { // (4)
-        // Close the connection when an exception is raised.
+    public void channelReadComplete(ChannelHandlerContext ctx)
+            throws Exception {
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
+                .addListener(ChannelFutureListener.CLOSE);
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx,
+                                Throwable cause) {
         cause.printStackTrace();
         ctx.close();
     }
