@@ -37,11 +37,8 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("device_appointment",
-                "intel_account",
-                "intel_device",
-                "user_device",
-                "user_info");
+        genCode("device_offline_info" ,
+                        "device_runtime_info");
         //genCodeByCustomModelName("输入表名","输入自定义Model名称");
     }
 

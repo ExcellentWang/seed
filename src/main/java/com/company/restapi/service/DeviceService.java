@@ -5,6 +5,7 @@ import com.company.restapi.model.IntelDevice;
 import com.company.restapi.model.ShareDevice;
 import com.company.restapi.model.UserDevice;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,4 +25,7 @@ public interface DeviceService {
     Map<Object,Object> findBindedDevice(UserDevice userDevice);
 
     Map<Object,Object> getDeviceInfo(UserDevice userDevice);
+
+    //以上是tcp/ip通信的业务逻辑
+    boolean handHeartbeat(HashMap<Object, Object> objectObjectHashMap);
 }

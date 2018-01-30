@@ -1,10 +1,7 @@
 package com.company.restapi.service.impl;
 
 import com.company.common.constant.BaseConstant;
-import com.company.restapi.dao.IntelAccountMapper;
-import com.company.restapi.dao.IntelDeviceMapper;
-import com.company.restapi.dao.ShareDeviceMapper;
-import com.company.restapi.dao.UserDeviceMapper;
+import com.company.restapi.dao.*;
 import com.company.restapi.model.IntelAccount;
 import com.company.restapi.model.IntelDevice;
 import com.company.restapi.model.ShareDevice;
@@ -12,6 +9,7 @@ import com.company.restapi.model.UserDevice;
 import com.company.restapi.service.DeviceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +38,10 @@ public class DeviceServiceImpl implements DeviceService {
     private UserDeviceMapper userDeviceMapper;
     @Resource
     private ShareDeviceMapper shareDeviceMapper;
+    @Resource
+    private DeviceOfflineInfoMapper deviceOfflineInfoMapper;
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
 
     @Override
     public Map<Object, Object> bindingDevice(IntelDevice intelDevice, UserDevice userDevice) {
@@ -141,5 +143,17 @@ public class DeviceServiceImpl implements DeviceService {
 
 
         return null;
+    }
+/**
+ * @author wang 2018/1/30 下午10:28
+ * @param 入参是经过切分的字段.
+ * @return
+ * 处理心跳包
+**/
+    @Override
+    public boolean handHeartbeat(HashMap<Object, Object> objectObjectHashMap) {
+       //查
+
+        return false;
     }
 }
