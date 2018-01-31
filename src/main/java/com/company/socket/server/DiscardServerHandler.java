@@ -1,4 +1,4 @@
-package com.company.socket;
+package com.company.socket.server;
 
 /**
  * com.company.socket

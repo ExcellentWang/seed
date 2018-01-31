@@ -127,8 +127,9 @@ public class DeviceRuntimeInfo {
      *
      * @param deviceId 设备ID
      */
-    public void setDeviceId(Integer deviceId) {
+    public DeviceRuntimeInfo setDeviceId(Integer deviceId) {
         this.deviceId = deviceId;
+        return this;
     }
 
     /**

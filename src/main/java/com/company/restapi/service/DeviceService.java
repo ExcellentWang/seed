@@ -26,6 +26,5 @@ public interface DeviceService {
 
     Map<Object,Object> getDeviceInfo(UserDevice userDevice);
 
-    //以上是tcp/ip通信的业务逻辑
-    boolean handHeartbeat(HashMap<Object, Object> objectObjectHashMap);
+    Map<Object,Object> unshareDevice();
 }

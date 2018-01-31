@@ -2,13 +2,13 @@ package com.company.restapi.service.impl;
 
 import com.company.common.constant.BaseConstant;
 import com.company.restapi.dao.*;
-import com.company.restapi.model.IntelAccount;
-import com.company.restapi.model.IntelDevice;
-import com.company.restapi.model.ShareDevice;
-import com.company.restapi.model.UserDevice;
+import com.company.restapi.model.*;
 import com.company.restapi.service.DeviceService;
+import com.sun.org.apache.bcel.internal.generic.GOTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.redis.core.RedisKeyValueTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,9 +39,11 @@ public class DeviceServiceImpl implements DeviceService {
     @Resource
     private ShareDeviceMapper shareDeviceMapper;
     @Resource
-    private DeviceOfflineInfoMapper deviceOfflineInfoMapper;
+    private DeviceRuntimeInfoMapper deviceRuntimeInfoMapper;
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+    @Resource
+    private RedisTemplate redisTemplate;
 
     @Override
     public Map<Object, Object> bindingDevice(IntelDevice intelDevice, UserDevice userDevice) {
@@ -82,7 +84,7 @@ public class DeviceServiceImpl implements DeviceService {
         if (intelAccount.getUserId() == 0 || intelAccount.getUserId() == Long.valueOf(shareDevice.getUserId())) {
             objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
             objectObjectHashMap.put("msg", "分享人不存在或与绑定人相同...");
-            return  objectObjectHashMap;
+            return objectObjectHashMap;
         }
         //
         int insert = userDeviceMapper.insert(new UserDevice()
@@ -92,7 +94,7 @@ public class DeviceServiceImpl implements DeviceService {
         if (insert == 0) {
             objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
             objectObjectHashMap.put("msg", "分享设备失败...");
-            return  objectObjectHashMap;
+            return objectObjectHashMap;
         }
         objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
         objectObjectHashMap.put("msg", "设备分享成功...");
@@ -102,7 +104,7 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public Map<Object, Object> findSharedDeivce(UserDevice userDevice) {
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
-       userDevice.setDeviceStatus(Short.parseShort("2"));
+        userDevice.setDeviceStatus(Short.parseShort("2"));
         List<UserDevice> select = userDeviceMapper.select(userDevice);
         if (select.isEmpty()) {
             objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
@@ -111,7 +113,7 @@ public class DeviceServiceImpl implements DeviceService {
         }
         objectObjectHashMap.put("code", BaseConstant.appUserSuccessStatus);
         objectObjectHashMap.put("msg", "获取分享设备成功...");
-        objectObjectHashMap.put("resultmap",select);
+        objectObjectHashMap.put("resultmap", select);
         return objectObjectHashMap;
     }
 
@@ -127,33 +129,27 @@ public class DeviceServiceImpl implements DeviceService {
         }
         objectObjectHashMap.put("code", BaseConstant.appUserSuccessStatus);
         objectObjectHashMap.put("msg", "获取绑定设备成功...");
-        objectObjectHashMap.put("resultmap",select);
+        objectObjectHashMap.put("resultmap", select);
         return objectObjectHashMap;
     }
-/**
- * @author wang 2018/1/26 下午5:57
- * @param
- * @return
- *
- * 获取设备信息接口没有写完.
-**/
+
+    /**
+     * @param
+     * @return 获取设备信息接口没有写完.
+     * @author wang 2018/1/26 下午5:57
+     **/
     @Override
     public Map<Object, Object> getDeviceInfo(UserDevice userDevice) {
         //获取设备基本信息,获取设备分享信息,获取设备详情信息
 
-
         return null;
     }
-/**
- * @author wang 2018/1/30 下午10:28
- * @param 入参是经过切分的字段.
- * @return
- * 处理心跳包
-**/
-    @Override
-    public boolean handHeartbeat(HashMap<Object, Object> objectObjectHashMap) {
-       //查
 
-        return false;
+    @Override
+    public Map<Object, Object> unshareDevice() {
+        //
+        return null;
     }
+
+
 }

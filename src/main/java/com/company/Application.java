@@ -1,13 +1,10 @@
 package com.company;
 
-import com.company.configurer.WebMvcConfigurer;
-import com.company.socket.DiscardServer;
+import com.company.socket.server.DiscardServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.net.InetSocketAddress;
 
 
 @SpringBootApplication

@@ -41,7 +41,7 @@ public class AppDeviceController {
      * @return 用户与设备的绑定
      * @author wang 2018/1/25 下午3:59
      **/
-    @RequestMapping(value = "device/bindingDevice")
+    @PostMapping(value = "device/bindingDevice")
     public Result bindingDevice(IntelDevice intelDevice, UserDevice userDevice) {
         try {
             Map<Object, Object> objectObjectMap = deviceService.bindingDevice(intelDevice, userDevice);
@@ -57,7 +57,7 @@ public class AppDeviceController {
      * @return 用户分享设备
      * @author wang 2018/1/26 上午10:36
      **/
-    @RequestMapping(value = "/device/shareDevice")
+    @PostMapping(value = "/device/shareDevice")
     public Result shareDevice(ShareDevice shareDevice) {
         try {
             Map<Object, Object> objectObjectMap = deviceService.shareDevice(shareDevice);
@@ -73,7 +73,7 @@ public class AppDeviceController {
      * @return 获取绑定设备列表
      * @author wang 2018/1/26 下午5:30
      **/
-    @RequestMapping(value = "/device/deviceList")
+    @PostMapping(value = "/device/deviceList")
     public Result findDviceBinded(UserDevice userDevice) {
 
         try {
@@ -91,7 +91,7 @@ public class AppDeviceController {
      * @return 获取分享列表
      * @author wang 2018/1/26 下午5:07
      **/
-    @RequestMapping(value = "/device/findDeviceShares")
+    @PostMapping(value = "/device/findDeviceShares")
     public Result findDeviceShares(UserDevice userDevice) {
         try {
             Map<Object, Object> objectObjectMap = deviceService.findSharedDeivce(userDevice);
@@ -109,7 +109,7 @@ public class AppDeviceController {
      * @return 获取单个设备详情
      * @author wang 2018/1/26 下午5:38
      **/
-    @RequestMapping(value = "/device/getDeviceDetail")
+    @PostMapping(value = "/device/getDeviceDetail")
     public Result getDeivceInfo(UserDevice userDevice) {
         try {
             Map<Object, Object> objectObjectMap = deviceService.getDeviceInfo(userDevice);
@@ -121,6 +121,17 @@ public class AppDeviceController {
 
         }
     }
+    /**
+     * @author wang 2018/1/31 下午12:00
+     * @param
+     * @return
+     * 删除绑定设备
+     **/
 
+    @PostMapping(value = "/device/deleteDeviceShare")
+    public  Result deletDevice(){
+        Map<Object,Object> objectObjectMap =  deviceService.unshareDevice();
 
+        return null;
+    }
 }
