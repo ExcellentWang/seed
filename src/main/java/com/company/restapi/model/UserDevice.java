@@ -4,7 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "user_device")
-public class UserDevice {
+public class                                                                                          UserDevice {
     /**
      * ID
      */

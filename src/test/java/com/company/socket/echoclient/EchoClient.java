@@ -55,7 +55,7 @@ public class EchoClient {
     public static void main(String[] argss)
             throws Exception {
         String[] args = new String[9];
-        args[0] = "localhost";
+        args[0] = "192.168.1.123";
         args[1] = "10026";
         final String host = args[0];
         final int port = Integer.parseInt(args[1]);

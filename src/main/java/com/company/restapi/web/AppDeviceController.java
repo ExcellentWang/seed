@@ -4,10 +4,7 @@ import com.company.common.constant.BaseConstant;
 import com.company.restapi.core.Result;
 import com.company.restapi.core.ResultGenerator;
 import com.company.restapi.dao.UserDeviceMapper;
-import com.company.restapi.model.IntelAccount;
-import com.company.restapi.model.IntelDevice;
-import com.company.restapi.model.ShareDevice;
-import com.company.restapi.model.UserDevice;
+import com.company.restapi.model.*;
 import com.company.restapi.service.DeviceService;
 import com.company.restapi.service.UserDeviceService;
 import com.company.restapi.service.impl.UserDeviceServiceImpl;
@@ -110,9 +107,9 @@ public class AppDeviceController {
      * @author wang 2018/1/26 下午5:38
      **/
     @PostMapping(value = "/device/getDeviceDetail")
-    public Result getDeivceInfo(UserDevice userDevice) {
+    public Result getDeivceInfo(DeviceRuntimeInfo deviceRuntimeInfo) {
         try {
-            Map<Object, Object> objectObjectMap = deviceService.getDeviceInfo(userDevice);
+            Map<Object, Object> objectObjectMap = deviceService.getDeviceInfo(deviceRuntimeInfo);
             return ResultGenerator.genSuccessResult(objectObjectMap);
 
         } catch (Exception e) {
@@ -121,17 +118,56 @@ public class AppDeviceController {
 
         }
     }
+
     /**
+     * @param
+     * @return 删除绑定设备
      * @author wang 2018/1/31 下午12:00
+     **/
+    @PostMapping(value = "/device/deleteDeviceShare")
+    public Result deletDevice(UserDevice userDevice) {
+        try {
+            Map<Object, Object> objectObjectMap = deviceService.unshareDevice(userDevice);
+            return ResultGenerator.genSuccessResult(objectObjectMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultGenerator.genFailResult(BaseConstant.controllerErrorMsg);
+        }
+    }
+
+    /**
+     * @param
+     * @return 设备提醒设置
+     * @author wang 2018/2/3 下午8:41
+     **/
+    @PostMapping(value = "/device/deviceRemind")
+
+    public Result setDeviceRemind(DeviceRemind deviceRemind) {
+        try {
+            Map<Object, Object> objectObjectMap = deviceService.setDeviceRemind(deviceRemind);
+            return ResultGenerator.genSuccessResult(objectObjectMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultGenerator.genFailResult(BaseConstant.controllerErrorMsg);
+        }
+    }
+
+    /**
      * @param
      * @return
-     * 删除绑定设备
+     * @author wang 2018/2/3 下午9:59
      **/
 
-    @PostMapping(value = "/device/deleteDeviceShare")
-    public  Result deletDevice(){
-        Map<Object,Object> objectObjectMap =  deviceService.unshareDevice();
+    @PostMapping("device/findDeviceRemind")
 
-        return null;
+    public Result findDeviceRemind(DeviceRemind deviceRemind) {
+        try {
+            Map<Object, Object> objectObjectMap = deviceService.findDeviceRemind(deviceRemind);
+            return ResultGenerator.genSuccessResult(objectObjectMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultGenerator.genFailResult(BaseConstant.controllerErrorMsg);
+        }
     }
+
 }

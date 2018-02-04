@@ -17,7 +17,7 @@ public class EchoClientHandler
     extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        ctx.writeAndFlush(Unpooled.copiedBuffer("<LDCT01201704230001:xtpc,032,OR>",
+        ctx.writeAndFlush(Unpooled.copiedBuffer("https://gitee.com/wang_gift/smartShower.git",
                 CharsetUtil.UTF_8));
     }
 

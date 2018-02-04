@@ -1,9 +1,6 @@
 package com.company.restapi.service;
 
-import com.company.restapi.model.IntelAccount;
-import com.company.restapi.model.IntelDevice;
-import com.company.restapi.model.ShareDevice;
-import com.company.restapi.model.UserDevice;
+import com.company.restapi.model.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +21,11 @@ public interface DeviceService {
 
     Map<Object,Object> findBindedDevice(UserDevice userDevice);
 
-    Map<Object,Object> getDeviceInfo(UserDevice userDevice);
+    Map<Object,Object> getDeviceInfo(DeviceRuntimeInfo deviceRuntimeInfo);
 
-    Map<Object,Object> unshareDevice();
+    Map<Object,Object> unshareDevice(UserDevice userDevice);
+
+    Map<Object,Object> setDeviceRemind(DeviceRemind deviceRemind);
+
+    Map<Object,Object> findDeviceRemind(DeviceRemind deviceRemind);
 }

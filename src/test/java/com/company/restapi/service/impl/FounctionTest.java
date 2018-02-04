@@ -17,11 +17,11 @@ import java.util.Set;
  * @description:
  **/
 public class FounctionTest {
+    int i ;
     @Test
     public void testMyidea() {
 
-        Integer i = 88888;
-        System.out.println(i.toString());
+        System.out.println(i);
     }
 
     @Test

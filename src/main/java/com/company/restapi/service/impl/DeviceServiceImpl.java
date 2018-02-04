@@ -41,6 +41,8 @@ public class DeviceServiceImpl implements DeviceService {
     @Resource
     private DeviceRuntimeInfoMapper deviceRuntimeInfoMapper;
     @Resource
+    private  DeviceRemindMapper deviceRemindMapper;
+    @Resource
     private StringRedisTemplate stringRedisTemplate;
     @Resource
     private RedisTemplate redisTemplate;
@@ -135,19 +137,63 @@ public class DeviceServiceImpl implements DeviceService {
 
     /**
      * @param
-     * @return 获取设备信息接口没有写完.
+     * @return 获取设备信息接口没有写完善!
      * @author wang 2018/1/26 下午5:57
      **/
     @Override
-    public Map<Object, Object> getDeviceInfo(UserDevice userDevice) {
-        //获取设备基本信息,获取设备分享信息,获取设备详情信息
-
-        return null;
+    public Map<Object, Object> getDeviceInfo(DeviceRuntimeInfo deviceRuntimeInfo) {
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        DeviceRuntimeInfo deviceRuntimeInfo1 = deviceRuntimeInfoMapper.selectOne(deviceRuntimeInfo);
+        if (deviceRuntimeInfo1.getDeviceId().equals("")) {
+            objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
+            objectObjectHashMap.put("msg", "获取设备详情失败...");
+            return objectObjectHashMap;
+        }
+        objectObjectHashMap.put("code", BaseConstant.appUserSuccessStatus);
+        objectObjectHashMap.put("msg", "获取设备详情成功...");
+        return objectObjectHashMap;
     }
 
     @Override
-    public Map<Object, Object> unshareDevice() {
-        //
+    public Map<Object, Object> unshareDevice(UserDevice userDevice) {
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        int i = userDeviceMapper.delete(userDevice);
+        if (i == 0) {
+            objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
+            objectObjectHashMap.put("msg", "删除设备失败...");
+            return objectObjectHashMap;
+        }
+        objectObjectHashMap.put("code", BaseConstant.appUserSuccessStatus);
+        objectObjectHashMap.put("msg", "删除分享设备成功...");
+        return objectObjectHashMap;
+    }
+
+    @Override
+    public Map<Object, Object> setDeviceRemind(DeviceRemind deviceRemind) {
+        //返回主键接收
+        int key;
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        DeviceRemind deviceRemind1 = deviceRemindMapper.selectOne(deviceRemind);
+        if (deviceRemind1.getEquipmentId().equals("")) {
+            key = deviceRemindMapper.insert(deviceRemind);
+        }else {
+            key  = deviceRemindMapper.updateByPrimaryKeySelective(deviceRemind);
+        }
+
+        if (key == 0) {
+            objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
+            objectObjectHashMap.put("msg", "删除设备失败...");
+            return objectObjectHashMap;
+        }
+        objectObjectHashMap.put("code", BaseConstant.appUserSuccessStatus);
+        objectObjectHashMap.put("msg", "删除分享设备成功...");
+        return objectObjectHashMap;
+    }
+
+    @Override
+    public Map<Object, Object> findDeviceRemind(DeviceRemind deviceRemind) {
+
+
         return null;
     }
 

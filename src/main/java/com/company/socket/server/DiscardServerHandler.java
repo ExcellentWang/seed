@@ -12,6 +12,7 @@ package com.company.socket.server;
 import com.company.restapi.dao.DeviceOfflineInfoMapper;
 import com.company.restapi.model.DeviceOfflineInfo;
 import com.company.restapi.service.DeviceService;
+import com.company.socket.service.DeviceSocketService;
 import com.sun.media.jfxmedia.logging.Logger;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -35,7 +36,7 @@ import java.util.HashMap;
 public class DiscardServerHandler extends ChannelInboundHandlerAdapter { // (1)
 
     @Resource
-    private DeviceService deviceService;
+    private DeviceSocketService deviceSocketService;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf in = (ByteBuf) msg;
@@ -57,7 +58,7 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter { // (1)
         {
             //心跳包
             case "xtpc":
-               boolean b =  deviceService.handHeartbeat(objectObjectHashMap);
+               boolean b =  deviceSocketService.handHeartbeat(objectObjectHashMap);
             default:
         }
 
