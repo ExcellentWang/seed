@@ -14,8 +14,8 @@ public class DeviceRemind {
     /**
      * 设备ID
      */
-    @Column(name = "equipment_id")
-    private Integer equipmentId;
+    @Column(name = "device_id")
+    private Integer deviceId;
 
     /**
      * 提醒方式 1振动 2响铃 3振铃
@@ -86,19 +86,19 @@ public class DeviceRemind {
     /**
      * 获取设备ID
      *
-     * @return equipment_id - 设备ID
+     * @return device_id - 设备ID
      */
-    public Integer getEquipmentId() {
-        return equipmentId;
+    public Integer getDeviceId() {
+        return deviceId;
     }
 
     /**
      * 设置设备ID
      *
-     * @param equipmentId 设备ID
+     * @param deviceId 设备ID
      */
-    public void setEquipmentId(Integer equipmentId) {
-        this.equipmentId = equipmentId;
+    public void setDeviceId(Integer deviceId) {
+        this.deviceId = deviceId;
     }
 
     /**

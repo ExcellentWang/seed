@@ -28,4 +28,6 @@ public interface DeviceService {
     Map<Object,Object> setDeviceRemind(DeviceRemind deviceRemind);
 
     Map<Object,Object> findDeviceRemind(DeviceRemind deviceRemind);
+
+    Map<Object,Object> makeAppointment(DeviceAppointment deviceAppointment);
 }

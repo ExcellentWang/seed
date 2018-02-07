@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2018/02/03.
+* Created by CodeGenerator on 2018/02/05.
 */
 @RestController
 @RequestMapping("/device/remind")

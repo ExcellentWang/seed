@@ -21,5 +21,6 @@
     <result column="hot_water_temp" jdbcType="VARCHAR" property="hotWaterTemp" />
     <result column="code_water_temp" jdbcType="VARCHAR" property="codeWaterTemp" />
     <result column="time_type" jdbcType="VARCHAR" property="timeType" />
+    <result column="water_flow_type" jdbcType="VARCHAR" property="waterFlowType" />
   </resultMap>
 </mapper>

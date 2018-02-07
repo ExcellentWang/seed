@@ -156,6 +156,7 @@ public class AppDeviceController {
      * @param
      * @return
      * @author wang 2018/2/3 下午9:59
+     * 发现提醒设置
      **/
 
     @PostMapping("device/findDeviceRemind")
@@ -169,5 +170,19 @@ public class AppDeviceController {
             return ResultGenerator.genFailResult(BaseConstant.controllerErrorMsg);
         }
     }
-
+/**
+ * @author wang 2018/2/7 下午3:57
+ * @param
+ * @return
+ * 设备预约
+**/
+    public Result makeAppointment(DeviceAppointment deviceAppointment) {
+        try {
+            Map<Object, Object> objectObjectMap = deviceService.makeAppointment(deviceAppointment);
+            return ResultGenerator.genSuccessResult(objectObjectMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultGenerator.genFailResult(BaseConstant.controllerErrorMsg);
+        }
+    }
 }

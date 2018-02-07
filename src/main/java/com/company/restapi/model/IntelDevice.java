@@ -90,8 +90,9 @@ public class IntelDevice {
      *
      * @param equipmentnum 设备编号
      */
-    public void setEquipmentnum(String equipmentnum) {
+    public IntelDevice setEquipmentnum(String equipmentnum) {
         this.equipmentnum = equipmentnum;
+        return this;
     }
 
     /**

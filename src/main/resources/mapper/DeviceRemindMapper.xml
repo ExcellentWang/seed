@@ -6,7 +6,7 @@
       WARNING - @mbg.generated
     -->
     <id column="remind_id" jdbcType="INTEGER" property="remindId" />
-    <result column="equipment_id" jdbcType="INTEGER" property="equipmentId" />
+    <result column="device_id" jdbcType="INTEGER" property="deviceId" />
     <result column="warn_type" jdbcType="INTEGER" property="warnType" />
     <result column="water_warn_status" jdbcType="INTEGER" property="waterWarnStatus" />
     <result column="water_under" jdbcType="INTEGER" property="waterUnder" />

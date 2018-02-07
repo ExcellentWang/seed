@@ -100,6 +100,12 @@ public class DeviceRuntimeInfo {
     private String timeType;
 
     /**
+     * 设备出水方式( 01 回流 02 顶喷 03 花洒 04  浴缸 05 背喷)
+     */
+    @Column(name = "water_flow_type")
+    private String waterFlowType;
+
+    /**
      * @return id
      */
     public Integer getId() {
@@ -383,4 +389,24 @@ public class DeviceRuntimeInfo {
     public void setTimeType(String timeType) {
         this.timeType = timeType;
     }
+
+    /**
+     * 获取设备出水方式( 01 回流 02 顶喷 03 花洒 04  浴缸 05 背喷)
+     *
+     * @return water_flow_type - 设备出水方式( 01 回流 02 顶喷 03 花洒 04  浴缸 05 背喷)
+     */
+    public String getWaterFlowType() {
+        return waterFlowType;
+    }
+
+    /**
+     * 设置设备出水方式( 01 回流 02 顶喷 03 花洒 04  浴缸 05 背喷)
+     *
+     * @param waterFlowType 设备出水方式( 01 回流 02 顶喷 03 花洒 04  浴缸 05 背喷)
+     */
+    public DeviceRuntimeInfo setWaterFlowType(String waterFlowType) {
+        this.waterFlowType = waterFlowType;
+    return this;
+    }
+
 }

@@ -12,8 +12,8 @@ public class DeviceAppointment {
     /**
      * 设备ID
      */
-    @Column(name = "equipment_id")
-    private String equipmentId;
+    @Column(name = "device_id")
+    private Integer deviceId;
 
     /**
      * 用户ID
@@ -88,19 +88,19 @@ public class DeviceAppointment {
     /**
      * 获取设备ID
      *
-     * @return equipment_id - 设备ID
+     * @return device_id - 设备ID
      */
-    public String getEquipmentId() {
-        return equipmentId;
+    public Integer getDeviceId() {
+        return deviceId;
     }
 
     /**
      * 设置设备ID
      *
-     * @param equipmentId 设备ID
+     * @param deviceId 设备ID
      */
-    public void setEquipmentId(String equipmentId) {
-        this.equipmentId = equipmentId;
+    public void setDeviceId(Integer deviceId) {
+        this.deviceId = deviceId;
     }
 
     /**

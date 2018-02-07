@@ -41,7 +41,9 @@ public class DeviceServiceImpl implements DeviceService {
     @Resource
     private DeviceRuntimeInfoMapper deviceRuntimeInfoMapper;
     @Resource
-    private  DeviceRemindMapper deviceRemindMapper;
+    private DeviceRemindMapper deviceRemindMapper;
+    @Resource
+    private DeviceAppointmentMapper deviceAppointmentMapper;
     @Resource
     private StringRedisTemplate stringRedisTemplate;
     @Resource
@@ -174,10 +176,10 @@ public class DeviceServiceImpl implements DeviceService {
         int key;
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
         DeviceRemind deviceRemind1 = deviceRemindMapper.selectOne(deviceRemind);
-        if (deviceRemind1.getEquipmentId().equals("")) {
+        if (deviceRemind1.getDeviceId().equals("")) {
             key = deviceRemindMapper.insert(deviceRemind);
-        }else {
-            key  = deviceRemindMapper.updateByPrimaryKeySelective(deviceRemind);
+        } else {
+            key = deviceRemindMapper.updateByPrimaryKeySelective(deviceRemind);
         }
 
         if (key == 0) {
@@ -190,6 +192,11 @@ public class DeviceServiceImpl implements DeviceService {
         return objectObjectHashMap;
     }
 
+    /**
+     * @param
+     * @return 查询提醒设置未完成
+     * @author wang 2018/2/7 下午3:59
+     **/
     @Override
     public Map<Object, Object> findDeviceRemind(DeviceRemind deviceRemind) {
 
@@ -197,5 +204,28 @@ public class DeviceServiceImpl implements DeviceService {
         return null;
     }
 
+    @Override
+    public Map<Object, Object> makeAppointment(DeviceAppointment deviceAppointment) {
+        //(TCP/IP)下发消息给设备
+//        redisTemplate.opsForValue().get()
 
+        //存数据库
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        int flag = 0;
+        if (deviceAppointment == null) {
+            objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
+            objectObjectHashMap.put("msg", "传参错误");
+            return objectObjectHashMap;
+        }
+
+        flag = deviceAppointmentMapper.insert(deviceAppointment);
+        if (flag == 0) {
+            objectObjectHashMap.put("code", BaseConstant.appUserFaileStatus);
+            objectObjectHashMap.put("msg", "预约失败...");
+            return objectObjectHashMap;
+        }
+        objectObjectHashMap.put("code", BaseConstant.appUserSuccessStatus);
+        objectObjectHashMap.put("msg", "预约成功...");
+        return objectObjectHashMap;
+    }
 }

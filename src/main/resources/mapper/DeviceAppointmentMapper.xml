@@ -6,7 +6,7 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="equipment_id" jdbcType="VARCHAR" property="equipmentId" />
+    <result column="device_id" jdbcType="INTEGER" property="deviceId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="effluent_speed" jdbcType="VARCHAR" property="effluentSpeed" />
     <result column="time" jdbcType="TIMESTAMP" property="time" />

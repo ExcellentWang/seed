@@ -6,7 +6,7 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="device_id" jdbcType="VARCHAR" property="deviceId" />
+    <result column="device_id" jdbcType="INTEGER" property="deviceId" />
     <result column="device_type" jdbcType="VARCHAR" property="deviceType" />
     <result column="command" jdbcType="VARCHAR" property="command" />
     <result column="args" jdbcType="VARCHAR" property="args" />

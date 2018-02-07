@@ -1,13 +1,5 @@
 package com.company.socket.service;
 
-import com.company.restapi.core.Service;
-import com.company.restapi.model.DeviceRuntimeInfo;
-import org.apache.ibatis.exceptions.TooManyResultsException;
-import tk.mybatis.mapper.entity.Condition;
-
-import java.util.HashMap;
-import java.util.List;
-
 /**
  * com.company.socket.service
  *
@@ -17,5 +9,9 @@ import java.util.List;
  **/
 public interface DeviceSocketService  {
     //以上是tcp/ip通信的业务逻辑
-    boolean handHeartbeat(HashMap<Object, Object> objectObjectHashMap);
+    boolean handHeartbeat(String o);
+
+    String handleDeviceType(String s);
+
+    String handleFlowType(String s);
 }

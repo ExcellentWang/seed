@@ -13,7 +13,7 @@ public class DeviceOfflineInfo {
      * 设备id
      */
     @Column(name = "device_id")
-    private String deviceId;
+    private Integer deviceId;
 
     /**
      * 设备类型
@@ -64,7 +64,7 @@ public class DeviceOfflineInfo {
      *
      * @return device_id - 设备id
      */
-    public String getDeviceId() {
+    public Integer getDeviceId() {
         return deviceId;
     }
 
@@ -73,7 +73,7 @@ public class DeviceOfflineInfo {
      *
      * @param deviceId 设备id
      */
-    public void setDeviceId(String deviceId) {
+    public void setDeviceId(Integer deviceId) {
         this.deviceId = deviceId;
     }
 
